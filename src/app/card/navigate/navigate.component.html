@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <mat-nav-list class="list-horizontal">
+      <mat-list-item>
+        <a (click)="back()">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a (click)="forward()">
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </a>
+      </mat-list-item>
+      <mat-list-item *ngFor="let navItem of urls; let i = index" [style.background]="navItem.color">
+        <a (click)="select(i)" href>{{navItem.title}}
+          <mat-icon *ngIf="hasNext(i)">arrow_forward_ios</mat-icon>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-toolbar>
