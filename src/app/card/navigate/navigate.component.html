@@ -11,7 +11,7 @@
         </a>
       </mat-list-item>
       <mat-list-item *ngFor="let navItem of urls; let i = index" [style.background]="navItem.color">
-        <a (click)="select(i)" href>{{navItem.title}}
+        <a (click)="select(i)">{{navItem.title}}
           <mat-icon *ngIf="hasNext(i)">arrow_forward_ios</mat-icon>
         </a>
       </mat-list-item>

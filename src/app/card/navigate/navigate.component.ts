@@ -37,9 +37,11 @@ export class NavigateComponent {
       .subscribe((events: RoutesRecognized[]) => {
         const prev = events[0].urlAfterRedirects.toString().substring(1);
         const curr = events[1].urlAfterRedirects.toString().substring(1);
+        console.log('cur=' + curr + ", prev=" + prev);
         if (this.previousUrl.length === 0) {
           this.previousUrl.push(this.prepareUrl(prev));
           this.currentIndex = this.previousUrl.length - 1;
+          console.log('cond1, prev=' + this.previousUrl + '');
         }
         if (
           !curr.endsWith('#') &&
@@ -52,12 +54,14 @@ export class NavigateComponent {
             Math.max(this.previousUrl.length - this.historyDeep, 0)
           );
           this.currentIndex = this.previousUrl.length - 1;
+          console.log('cond2, prev=' + this.previousUrl + '');
         } else if (
           !curr.endsWith('#') &&
           (prev === curr || this.previousUrl[this.currentIndex] === curr)
         ) {
           this.previousUrl = this.previousUrl.slice(0, this.currentIndex + 1);
           this.currentIndex = this.previousUrl.length - 1;
+          console.log('cond3, prev=' + this.previousUrl + '');
         }
       });
   }
