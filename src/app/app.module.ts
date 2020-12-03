@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { NavigateComponent } from './card/navigate/navigate.component';
+import { NavigateComponent } from './navigate/navigate.component';
 
 @NgModule({
   declarations: [AppComponent, NavigateComponent],
