@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigateComponent } from './navigate/navigate.component';
+import { CardModule } from './card/card.module';
 
 @NgModule({
   declarations: [AppComponent, NavigateComponent],
@@ -18,7 +19,8 @@ import { NavigateComponent } from './navigate/navigate.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
