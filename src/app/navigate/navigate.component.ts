@@ -3,7 +3,6 @@ import {
   ActivatedRoute,
   Route,
   Router,
-  Routes,
   RoutesRecognized,
 } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
@@ -32,8 +31,8 @@ export class NavigateComponent {
         pairwise()
       )
       .subscribe((events: RoutesRecognized[]) => {
-        const prev = events[0].urlAfterRedirects.toString().substring(1);
-        const curr = events[1].urlAfterRedirects.toString().substring(1);
+        const prev = this.getUrlOnly(events[0].urlAfterRedirects.toString());
+        const curr = this.getUrlOnly(events[1].urlAfterRedirects.toString());
         if (this.previousUrl.length === 0) {
           this.previousUrl.push(this.prepareUrl(prev));
           this.currentIndex = this.previousUrl.length - 1;
@@ -65,6 +64,16 @@ export class NavigateComponent {
     }
     if (path.endsWith('#')) {
       path = path.substring(0, path.length - 1);
+    }
+    return path;
+  }
+
+  private getUrlOnly(path: string): string {
+    if (path.startsWith('/')) {
+      path = path.substring(1);
+    }
+    if (path.indexOf('?') >= 0) {
+      path = path.substring(0, path.indexOf('?'));
     }
     return path;
   }
