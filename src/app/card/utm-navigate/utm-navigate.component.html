@@ -1,0 +1,31 @@
+<h3>Переход по ссылке с UTM меткой</h3>
+<mat-grid-list cols="6">
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" [formControl]="utmSource" placeholder="utm_source"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" [formControl]="utmMedium" placeholder="utm_medium"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" [formControl]="utmCampaign" placeholder="utm_campaign"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" [formControl]="utmContent" placeholder="utm_content"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" [formControl]="utmTerm" placeholder="utm_term"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile class="button-row">
+        <button mat-button color="primary" (click)="sendUtm()">Перейти</button>
+    </mat-grid-tile>
+</mat-grid-list>

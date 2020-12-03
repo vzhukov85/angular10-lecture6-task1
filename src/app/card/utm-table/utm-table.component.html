@@ -1,0 +1,112 @@
+<mat-divider></mat-divider>
+<h3>Поиск меток по переходам</h3>
+<button (click)="cleanUtm()">Очистка меток</button>
+<button (click)="cleanFilter()">Сброс фильтров</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef >Время перехода по ссылке</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef>url</th>
+        <td mat-cell *matCellDef="let element">
+            <a [href]="element.url">Ссылка</a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="utm-source">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field>
+                <input type="text" 
+                matInput 
+                [formControl]="utmSourceIndexVal" 
+                [matAutocomplete]="auto" 
+                placeholder="utm_source">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="filter()">
+                    <mat-option *ngFor="let option of utmSourceIndex" [value]="option">
+                      {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{ element.utmSource }}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="utm-medium">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field>
+                <input type="text" 
+                matInput 
+                [formControl]="utmMediumIndexVal" 
+                [matAutocomplete]="auto" 
+                placeholder="utm_medium">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="filter()">
+                    <mat-option *ngFor="let option of utmMediumIndex" [value]="option">
+                      {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.utmMedium }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="utm-campaign">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field>
+                <input type="text" 
+                matInput 
+                [formControl]="utmCampaignIndexVal" 
+                [matAutocomplete]="auto" 
+                placeholder="utm_campaign">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="filter()">
+                    <mat-option *ngFor="let option of utmCampaignIndex" [value]="option">
+                      {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.utmCampaign }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="utm-content">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field>
+                <input type="text" 
+                matInput 
+                [formControl]="utmContentIndexVal" 
+                [matAutocomplete]="auto" 
+                placeholder="utm_content">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="filter()">
+                    <mat-option *ngFor="let option of utmContentIndex" [value]="option">
+                      {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.utmCampaign }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="utm-term">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-form-field>
+                <input type="text" 
+                matInput 
+                [formControl]="utmTermIndexVal" 
+                [matAutocomplete]="auto" 
+                placeholder="utm_term">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="filter()">
+                    <mat-option *ngFor="let option of utmTermIndex" [value]="option">
+                      {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.utmTerm }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

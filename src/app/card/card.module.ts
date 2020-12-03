@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {CommonModule} from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { UtmTableComponent } from './utm-table/utm-table.component';
+import { UtmNavigateComponent } from './utm-navigate/utm-navigate.component';
 
 
 
@@ -23,7 +25,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ProjectsComponent,
     NotFoundComponent,
     GrabUtmComponent,
-    HomeComponent
+    HomeComponent,
+    UtmTableComponent,
+    UtmNavigateComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +47,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     NotFoundComponent,
     GrabUtmComponent,
     HomeComponent,
+    UtmTableComponent,
+    UtmNavigateComponent,
   ],
 })
 export class CardModule {}
