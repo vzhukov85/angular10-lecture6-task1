@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './card/main/main.component';
 import { BioComponent } from './card/bio/bio.component';
 import { ProjectsComponent } from './card/projects/projects.component';
 import { NotFoundComponent } from './card/not-found/not-found.component';
+import { HomeComponent } from './card/home/home.component';
 
 export const router: Routes = [
   {
-    path: 'main',
-    component: MainComponent,
+    path: 'home',
+    component: HomeComponent,
     data: {
       title: 'Главная'
     }
@@ -34,7 +34,7 @@ export const router: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'main',
+    redirectTo: 'home',
   },
   {
     path: '**',

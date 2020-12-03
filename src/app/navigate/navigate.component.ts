@@ -15,7 +15,6 @@ import { router as fullRouterLink } from '../app-router.module';
   styleUrls: ['./navigate.component.css'],
 })
 export class NavigateComponent {
-  routes: Route[] = [];
   previousUrl: string[] = [];
   currentIndex: number;
   routerNames: Map<string, string> = new Map();
@@ -23,11 +22,9 @@ export class NavigateComponent {
   constructor(private router: Router, private route: ActivatedRoute) {
     fullRouterLink.forEach((item: Route) => {
       if (item.data && 'title' in item.data) {
-        this.routes.push(item);
         this.routerNames.set(item.path, item.data.title);
       }
     });
-    console.log(this.routerNames);
 
     this.router.events
       .pipe(
@@ -70,10 +67,6 @@ export class NavigateComponent {
       path = path.substring(0, path.length - 1);
     }
     return path;
-  }
-
-  get routerLink(): Routes {
-    return this.routes;
   }
 
   back(): void {
