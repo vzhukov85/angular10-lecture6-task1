@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Utm, UtmDataSource, UtmService } from 'src/app/utm.service';
+import { Utm, UtmDataSource, UtmService } from '../../utm.service';
 
 @Component({
   selector: 'utm-table',
